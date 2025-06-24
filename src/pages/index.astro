@@ -1,16 +1,69 @@
 ---
+import Layout from '../layouts/Layout.astro';
+import GameCard from '../components/GameCard.astro';
 
+interface Game {
+    title: string;
+    description: string;
+    imageUrl: string;
+    href?: string;
+    status: 'active' | 'coming-soon';
+}
+
+const games:  Game[] = [
+    {
+        title: "Who's That Pokémon?",
+        description: "A classic silhouette challenge. Can you identify the Pokémon from its shadow?",
+        imageUrl: "/images/whosthatpokemon.png",
+        status: "coming-soon"
+    },
+    {
+        title: "Guess The Cry",
+        description: "Listen to the cry and guess the Pokémon. A true test for any fan!",
+        imageUrl: "/images/guessthecry.jpg",
+        href: "https://guessthecry.turboot.com",
+        status: "active"
+    },
+    {
+        title: "Guess The Shiny",
+        description: "Spot the difference! Pick the correct shiny Pokémon from a lineup.",
+        imageUrl: "/images/guesstheshiny.webp",
+        status: "coming-soon"
+    }
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="PokéPortal - Your Pokémon Game Hub">
+	<main class="container mx-auto px-4 py-16">
+        
+        <!-- Header -->
+        <header class="text-center mb-16">
+            <h1 class="font-pixel text-5xl md:text-7xl text-yellow-400 drop-shadow-[4px_4px_0_#2a75bb]">
+                PokéPortal
+            </h1>
+            <p class="mt-4 font-sans text-xl text-gray-600 max-w-2xl mx-auto">
+                Your central hub for fun and challenging Pokémon mini-games. Choose a game below to start your adventure!
+            </p>
+        </header>
+
+        <!-- Game Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {games.map(game => (
+                <GameCard 
+                    title={game.title}
+                    description={game.description}
+                    imageUrl={game.imageUrl}
+                    href={game.href}
+                    status={game.status}
+                />
+            ))}
+        </div>
+
+        <!-- Footer -->
+        <footer class="text-center mt-30 font-sans text-gray-500">
+            <p>Made by Thijs Herman.</p>
+            <p>This is a fan-made project. Pokémon and all related properties are trademarks of Nintendo, Game Freak, and The Pokémon Company.</p>
+        </footer>
+
+	</main>
+</Layout>

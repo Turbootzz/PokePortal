@@ -1,0 +1,42 @@
+@theme {
+  --font-sans: "Roboto", sans-serif;
+  --font-pixel: "Silkscreen", sans-serif;
+}
+
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: var(--font-pixel);
+    background-color: #f0f4f8;
+    background-image:
+      radial-gradient(circle, #ffffff 10%, transparent 11%),
+      radial-gradient(circle, #ffffff 10%, transparent 11%);
+    background-size: 40px 40px;
+    background-position:
+      0 0,
+      20px 20px;
+
+    /* default color */
+    @apply text-gray-800;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-inherit;
+  }
+}
+
+@layer utilities {
+  .font-pixel {
+    font-family: var(--font-pixel);
+  }
+
+  .font-sans {
+    font-family: var(--font-sans);
+  }
+}

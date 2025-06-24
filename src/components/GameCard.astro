@@ -1,0 +1,37 @@
+---
+
+interface Props {
+    title: string;
+    description: string;
+    imageUrl: string;
+    href?: string;
+    status: 'active' | 'coming-soon';
+}
+
+const { title, description, imageUrl, href, status } = Astro.props;
+
+const isActive = status === 'active';
+---
+
+<div class:list={[
+    "relative group rounded-xl overflow-hidden border-4 border-gray-800 shadow-lg transform transition-all duration-300",
+    isActive ? "hover:scale-105 hover:shadow-2xl" : "opacity-60 saturate-50"
+]}>
+    <img src={imageUrl} alt={`Image for ${title}`} class="absolute inset-0 w-full h-full object-cover z-0" />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent z-10"></div>
+    
+    <div class="relative flex flex-col justify-end h-72 p-6 z-20 text-white">
+        <h3 class="font-pixel text-2xl drop-shadow-lg">{title}</h3>
+        <p class="mt-2 font-sans text-gray-200">{description}</p>
+        
+        {isActive ? (
+            <a href={href} class="mt-4 inline-block bg-yellow-400 text-gray-900 font-bold py-2 px-6 rounded-full self-start transition-transform group-hover:bg-yellow-300 group-hover:-translate-y-1">
+                Play Now!
+            </a>
+        ) : (
+            <div class="mt-4 inline-block bg-gray-600 text-gray-300 font-bold py-2 px-6 rounded-full self-start cursor-not-allowed">
+                Coming Soon...
+            </div>
+        )}
+    </div>
+</div>
