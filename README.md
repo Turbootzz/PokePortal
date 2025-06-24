@@ -1,5 +1,5 @@
 ---
-# 🎮 PokéPortal - Your Ultimate Pokémon Game Hub
+# 🎮 PokéPortal - The Ultimate Pokémon Game Hub
 
 Welcome to **PokéPortal**, the central hub for a collection of fun and challenging Pokémon mini-games. Built with a modern, performant tech stack, this portal serves as a fast and beautiful gateway to different game experiences.
 
