@@ -56,7 +56,7 @@ To get the PokePortal running on your local machine, follow these steps.
 1.  **Clone the repository** (if you haven't already):
 
     ```bash
-    git clone https://github.com/Turbootzz/PokePortal.git # Vervang door de juiste URL
+    git clone https://github.com/Turbootzz/PokePortal.git
     cd poke-portal
     ```
 
